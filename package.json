@@ -1,7 +1,7 @@
 {
   "engines": {
     "node": "8.9.4",
-    "npm": "6.1.0"
+    "npm": "5.6.0"
   },
   "name": "faggruppe-web",
   "version": "0.0.0",

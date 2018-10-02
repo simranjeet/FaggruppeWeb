@@ -8,11 +8,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AdalService, AdalGuard} from 'adal-angular4';
 import { HttpClientModule} from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
+import { ApiComponent } from './api/api.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    ApiComponent
   ],
   imports: [
     BrowserModule,

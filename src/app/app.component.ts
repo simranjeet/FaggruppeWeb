@@ -25,8 +25,9 @@ export class AppComponent implements OnInit {
     }
 
     if (this.adalService.userInfo.authenticated) {
-      // this.adalService.acquireToken(environment.api.clientId).subscribe( token => {localStorage.setItem("api_token", token), this.isLogedIn=true});
-      this.isLogedIn = true;
+      this.adalService.acquireToken(environment.api.clientId).subscribe( token => {
+        localStorage.setItem('api_token', token), this.isLogedIn = true;
+      });
     }
   }
 

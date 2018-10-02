@@ -3,14 +3,23 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 
+// App Modules
+import { AppRoutingModule } from './app-routing.module';
+import { AdalService, AdalGuard} from 'adal-angular4';
+import { HttpClientModule} from '@angular/common/http';
+import { HomeComponent } from './home/home.component';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [AdalService, AdalGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

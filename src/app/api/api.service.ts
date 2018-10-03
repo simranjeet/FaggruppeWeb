@@ -24,7 +24,7 @@ export class ApiService implements OnInit {
 
   public getGreetings(): Observable<any> {
     const options = this.getHeaders();
-    return this.http.get(environment.api.apiUrl, {headers: options}).pipe(timeout(20000));
+    return this.http.get(environment.api.apiUrl + 'read/greetings/sunny', {headers: options}).pipe(timeout(20000));
   }
 
   public getApiStatus(): Observable<any> {

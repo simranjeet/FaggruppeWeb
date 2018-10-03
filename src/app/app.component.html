@@ -1,3 +1,7 @@
+<a routerLink="" class="nav-link" (click)="isCollapsed = !isCollapsed">Home</a>
+<a routerLink="api" class="nav-link" (click)="isCollapsed = !isCollapsed">API</a>
+
+
 <div *ngIf="isLogedIn">
     <div class="router-outlet-container">
         <h1>

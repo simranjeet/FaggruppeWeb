@@ -9,24 +9,38 @@ import { ApiService } from './api.service';
 })
 export class ApiComponent implements OnInit {
 
-  public greetingSubscription: Subscription;
-  public doneLoading: boolean = false;
-  public failedLoading: boolean = false;
-  public errorMessage: string;
+  gettingApiStatus: boolean = false;
+  apiStatus: string = 'Not connected';
+  greetings: string = '';
 
   constructor(private apiService: ApiService) { }
 
   ngOnInit() {
-    this.getGreetings();
+    // this.getGreetings();
+    this.getApiStatus();
   }
 
-  private getGreetings(): void {
-    this.greetingSubscription = this.apiService.getGreetings().subscribe((greetings) => this.doneLoading = true,
-      err => { 
-        this.doneLoading = true;
-        this.failedLoading = true;
-        this.errorMessage = this.apiService.handleErrorMessage(err);
-    });
+  // getGreetings(): void {
+  //   this.greetingSubscription = this.apiService.getGreetings().subscribe((greetings) => this.doneLoading = true,
+  //     err => { 
+  //       this.doneLoading = true;
+  //       this.failedLoading = true;
+  //       this.errorMessage = this.apiService.handleErrorMessage(err);
+  //   });
+  // }
+
+  getApiStatus() {
+    this.gettingApiStatus = true;
+    return this.apiService
+      .getApiStatus()
+      .subscribe(apiStatus => {
+        this.apiStatus = apiStatus;
+        this.gettingApiStatus = false;
+        console.log(this.apiStatus);
+      },
+      err => {
+        this.apiService.handleErrorMessage(err);
+      });
   }
   
 }

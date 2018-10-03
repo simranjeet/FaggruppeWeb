@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 
 import { HttpClient, HttpHeaders, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { AdalService } from 'adal-angular4';
@@ -12,14 +12,25 @@ import { environment } from 'src/environments/environment.prod';
   providedIn: 'root'
 })
 
-export class ApiService {
+export class ApiService implements OnInit {
+  
+  apiStatus: string = '';
 
+  ngOnInit() {
+    this.getApiStatus();
+  }
 
   constructor(private http: HttpClient, private adalService: AdalService) {}
 
   public getGreetings(): Observable<any> {
     const options = this.getHeaders();
     return this.http.get(environment.api.apiUrl, {headers: options}).pipe(timeout(20000));
+  }
+
+  public getApiStatus(): Observable<any> {
+    const options = this.getHeaders();
+    console.log(environment.api.apiUrl + 'status');
+    return this.http.get(environment.api.apiUrl + 'status', {headers: options}).pipe(timeout(20000));
   }
 
 

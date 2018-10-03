@@ -8,6 +8,6 @@ export const environment = {
   },
   api: {
     clientId: 'b83dcd90-4621-4da3-ab76-362282613bad',
-    apiUrl: 'https://faggruppewebapp.azurewebsites.net/api/cosmos'
+    apiUrl: 'https://faggruppeapiapp.azurewebsites.net/api/cosmos'
   }
 };

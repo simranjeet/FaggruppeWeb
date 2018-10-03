@@ -26,7 +26,7 @@ export class ApiComponent implements OnInit {
     return this.apiService
     .getGreetings()
     .subscribe(greetings => {
-      this.greetings = greetings;
+      this.greetings = greetings.greetingMessage;
       this.gettingApiData = false;
       console.log(this.greetings);
     },
